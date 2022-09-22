@@ -27,6 +27,7 @@ class BooksViewSet(ModelViewSet):
 class BooksListCreateAPIView(ListCreateAPIView):
     # queryset = Books.objects.all()
     serializer_class = BooksSerializer
+    # permission_classes = [IsAdminUser]
 
     search_param = openapi.Parameter('category', in_=openapi.IN_QUERY,
                                             description='Category Name ',
@@ -43,9 +44,14 @@ class BooksListCreateAPIView(ListCreateAPIView):
         queryset = Books.objects.filter(category=category).order_by('id')
         return queryset
 
-    # permission_classes = [IsAdminUser]
+    def post(self, request, *args, **kwargs):
+        lonee_id = request.data.get('lonee_id')
+        if lonee_id is None:
+            raise ValidationError('required parameters are missing')
+        return super().post(request, *args, **kwargs)
 
-
+    def create(self, request, *args, **kwargs):
+        return super().create(request, *args, **kwargs)
 
 
 class PollList(APIView):

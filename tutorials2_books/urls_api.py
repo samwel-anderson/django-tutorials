@@ -1,10 +1,15 @@
 # from django.contrib.auth import views
-from django.urls import path
-
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
 
 from . import views
+from .views_api import BooksViewSet
+
+router = DefaultRouter()
+router.register('viewsettutorials', BooksViewSet)
 
 urlpatterns = [
-    path('', views.index, name='home'),  # default empty page
+    path('', include(router.urls)),
 
+    # path('books', include(router.urls)),
 ]

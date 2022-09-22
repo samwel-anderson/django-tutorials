@@ -40,8 +40,9 @@ INSTALLED_APPS = [
 
     'tutorials2_books',
     'tutorials2_webapp',
+    'tutorials2_api',
     'Apps.calvinapp',
-    'Apps.calvinapp2'
+    'Apps.calvinapp2',
 
 ]
 

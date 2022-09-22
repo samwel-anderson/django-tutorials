@@ -26,3 +26,12 @@
 
 6. Using Viewset API
     https://www.geeksforgeeks.org/how-to-create-a-basic-api-using-django-rest-framework/
+
+7. Installing Swagger documentation from "https://github.com/axnsan12/drf-yasg"
+    pip install -U drf-yasg
+    add 'drf_yasg' in INSTALLED_APPS
+    configure schema_view in urls.py
+
+8. Using Generic Based Views
+    https://www.cdrf.co/
+

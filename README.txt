@@ -34,4 +34,9 @@
 
 8. Using Generic Based Views
     https://www.cdrf.co/
+    https://books.agiliq.com/projects/django-api-polls-tutorial/en/latest/views-and-generic-views.html
+    https://realpython.com/django-rest-framework-class-based-views/
+    https://medium.com/analytics-vidhya/django-rest-framework-generic-views-using-parameters-in-the-url-with-the-query-fd61eba85f4
+    http://www.tomchristie.com/rest-framework-2-docs/api-guide/generic-views
+    https://www.django-rest-framework.org/tutorial/3-class-based-views/
 

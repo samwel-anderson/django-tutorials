@@ -6,6 +6,7 @@ from django.shortcuts import render
 from drf_yasg import openapi
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework import status
+from rest_framework.exceptions import ValidationError
 from rest_framework.generics import ListCreateAPIView, CreateAPIView, RetrieveUpdateAPIView, RetrieveDestroyAPIView, \
     RetrieveUpdateDestroyAPIView
 from rest_framework.permissions import AllowAny
@@ -24,9 +25,27 @@ class BooksViewSet(ModelViewSet):
 
 
 class BooksListCreateAPIView(ListCreateAPIView):
-    queryset = Books.objects.all()
+    # queryset = Books.objects.all()
     serializer_class = BooksSerializer
+
+    search_param = openapi.Parameter('category', in_=openapi.IN_QUERY,
+                                            description='Category Name ',
+                                            type=openapi.TYPE_STRING, )
+    @swagger_auto_schema(manual_parameters=[search_param])
+    def get(self, request, *args, **kwargs):
+        return self.list(request, *args, **kwargs)
+
+    def get_queryset(self):
+        category = self.request.query_params.get('category', None)
+        if category is None:
+            raise ValidationError('category is required')
+            # return Response('category is required', status=status.HTTP_400_BAD_REQUEST)
+        queryset = Books.objects.filter(category=category).order_by('id')
+        return queryset
+
     # permission_classes = [IsAdminUser]
+
+
 
 
 class PollList(APIView):

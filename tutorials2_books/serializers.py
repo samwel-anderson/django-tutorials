@@ -11,5 +11,6 @@ class BooksSerializer(serializers.ModelSerializer):
             'id',
             'book_id',
             'bookname',
+            'category',
             'created_at'
         )

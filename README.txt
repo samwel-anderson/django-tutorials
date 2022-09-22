@@ -40,3 +40,10 @@
     http://www.tomchristie.com/rest-framework-2-docs/api-guide/generic-views
     https://www.django-rest-framework.org/tutorial/3-class-based-views/
 
+9. Using pagination
+    https://www.django-rest-framework.org/api-guide/pagination/
+    https://www.sankalpjonna.com/learn-django/pagination-made-easy-with-django-rest-framework
+
+10. deployment
+
+

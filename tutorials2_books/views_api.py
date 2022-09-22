@@ -8,12 +8,14 @@ from drf_yasg.utils import swagger_auto_schema
 from rest_framework import status
 from rest_framework.exceptions import ValidationError
 from rest_framework.generics import ListCreateAPIView, CreateAPIView, RetrieveUpdateAPIView, RetrieveDestroyAPIView, \
-    RetrieveUpdateDestroyAPIView
+    RetrieveUpdateDestroyAPIView, ListAPIView
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.viewsets import ModelViewSet
 
+from tutorials2_api.paginations import PaginationOfPageNumberPagination, PaginationOfLimitOffsetPagination, \
+    PaginationOfCursorPagination
 from tutorials2_books.models_base import Books
 from tutorials2_books.serializers import BooksSerializer
 
@@ -30,8 +32,9 @@ class BooksListCreateAPIView(ListCreateAPIView):
     # permission_classes = [IsAdminUser]
 
     search_param = openapi.Parameter('category', in_=openapi.IN_QUERY,
-                                            description='Category Name ',
-                                            type=openapi.TYPE_STRING, )
+                                     description='Category Name ',
+                                     type=openapi.TYPE_STRING, )
+
     @swagger_auto_schema(manual_parameters=[search_param])
     def get(self, request, *args, **kwargs):
         return self.list(request, *args, **kwargs)
@@ -66,7 +69,7 @@ class PollList(APIView):
             "name": 'sample name',
             "nick-name": 'rick ross'
         }
-        return Response(data, status.HTTP_200_OK)
+        return Response(res, status.HTTP_200_OK)
 
     def post(self, request, format=None):
         res = {
@@ -81,3 +84,9 @@ class PollList(APIView):
         #     serializer.save()
         #     return Response(serializer.data, status=status.HTTP_201_CREATED)
         # return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class BooksListAPIView(ListAPIView):
+    queryset = Books.objects.all()
+    serializer_class = BooksSerializer
+    pagination_class = PaginationOfCursorPagination

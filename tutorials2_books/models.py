@@ -4,13 +4,32 @@ from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext as _
 
-
 # Create your models here.
 from tutorials2_books.models_base import Books
 
 
 def expiry():
     return datetime.today() + timedelta(days=15)
+
+
+class Loanee(models.Model):
+    loanee_id = models.CharField(max_length=10)
+    firstname = models.CharField(max_length=50)
+    lastname = models.CharField(max_length=20)
+    created_at = models.DateTimeField(verbose_name='Created time', auto_now_add=True)
+    updated_at = models.DateTimeField(verbose_name='Updated time', auto_now=True)
+
+    class Meta:
+        verbose_name = "Loanee"
+        verbose_name_plural = "Loanee"
+        permissions = (
+            ("can_apply_loan", "Can Apply Loan"),
+            ("can_repay_loan", "Can Repay Loan"),
+            ("can_cancel_application", "Can Cancel Application"),
+        )
+
+    def __str__(self):
+        return str(self.loanee_id)
 
 
 class IssuedBooks(models.Model):

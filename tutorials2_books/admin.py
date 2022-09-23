@@ -2,7 +2,7 @@ from django.contrib import admin
 
 # Register your models here.
 from tutorials2_books.forms.issue_book_forms import IssueBookForm
-from tutorials2_books.models import Books, IssuedBooks
+from tutorials2_books.models import Books, IssuedBooks, Loanee
 
 
 @admin.register(Books)
@@ -25,3 +25,13 @@ class IssuedBooksAdmin(admin.ModelAdmin):
     list_filter = ['created_at', 'updated_at']
     list_per_page = 20
 
+
+@admin.register(Loanee)
+class LoaneeAdmin(admin.ModelAdmin):
+    form = IssueBookForm
+    list_display = ('id', 'loanee_id', 'firstname', 'lastname')
+    list_display_links = ('loanee_id', 'firstname',)
+    search_fields = ('id', 'loanee_id', 'firstname', 'lastname')
+    ordering = ['id']
+    list_filter = ['created_at', 'updated_at']
+    list_per_page = 20

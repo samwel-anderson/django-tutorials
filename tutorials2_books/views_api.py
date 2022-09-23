@@ -9,14 +9,14 @@ from rest_framework import status
 from rest_framework.exceptions import ValidationError
 from rest_framework.generics import ListCreateAPIView, CreateAPIView, RetrieveUpdateAPIView, RetrieveDestroyAPIView, \
     RetrieveUpdateDestroyAPIView, ListAPIView
-from rest_framework.permissions import AllowAny, IsAdminUser, DjangoModelPermissions
+from rest_framework.permissions import AllowAny, IsAdminUser, DjangoModelPermissions, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.viewsets import ModelViewSet
 
 from tutorials2_api.paginations import PaginationOfPageNumberPagination, PaginationOfLimitOffsetPagination, \
     PaginationOfCursorPagination
-from tutorials2_api.permissions import CustomDjangoModelPermission
+from tutorials2_api.permissions import CustomDjangoModelPermission, IsStudent
 from tutorials2_books.models_base import Books
 from tutorials2_books.serializers import BooksSerializer
 
@@ -91,4 +91,5 @@ class BooksListAPIView(ListAPIView):
     queryset = Books.objects.all()
     serializer_class = BooksSerializer
     pagination_class = PaginationOfCursorPagination
-    permission_classes = [CustomDjangoModelPermission]
+    # THE LIST BELOW IS AND
+    permission_classes = [IsStudent]

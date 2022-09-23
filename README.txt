@@ -61,5 +61,6 @@
     https://stackoverflow.com/questions/1876424/add-a-custom-permission-to-a-user
     https://www.honeybadger.io/blog/django-permissions/
     https://www.geeksforgeeks.org/python-user-groups-custom-permissions-django/
+    https://stackoverflow.com/questions/16573174/how-to-get-user-permissions
 
 

@@ -28,6 +28,9 @@ class ExistInAnyGroup(BasePermission):
 
     def has_permission(self, request, view):
         user = request.user
+        # CHECK IF USER HAS PERMISSION
+        # if request.user.has_perm('app_name.can_add_cost_price'):
+
         return user.is_authenticated and user.groups.filter(name__in=self.group).exists()
 
 

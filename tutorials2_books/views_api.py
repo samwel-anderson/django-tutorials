@@ -16,7 +16,7 @@ from rest_framework.viewsets import ModelViewSet
 
 from tutorials2_api.paginations import PaginationOfPageNumberPagination, PaginationOfLimitOffsetPagination, \
     PaginationOfCursorPagination
-from tutorials2_api.permissions import CustomDjangoModelPermission, IsStudent
+from tutorials2_api.permissions import CustomDjangoModelPermission, IsStudent, IsTeacherOrStudent
 from tutorials2_books.models_base import Books
 from tutorials2_books.serializers import BooksSerializer
 
@@ -92,4 +92,5 @@ class BooksListAPIView(ListAPIView):
     serializer_class = BooksSerializer
     pagination_class = PaginationOfCursorPagination
     # THE LIST BELOW IS AND
-    permission_classes = [IsStudent]
+    # permission_classes = [IsStudent]
+    permission_classes = [IsTeacherOrStudent]

@@ -93,4 +93,5 @@ class BooksListAPIView(ListAPIView):
     pagination_class = PaginationOfCursorPagination
     # THE LIST BELOW IS AND
     # permission_classes = [IsStudent]
+    # permission_classes = [IsAuthenticated|ReadOnly]
     permission_classes = [IsTeacherOrStudent]

@@ -57,4 +57,9 @@
     https://www.geeksforgeeks.org/adding-permission-in-api-django-rest-framework/
     https://dipeshpaudel.com/django-rest-framework-permissions-example
 
+    CUSTOM PERMISSIONS
+    https://stackoverflow.com/questions/1876424/add-a-custom-permission-to-a-user
+    https://www.honeybadger.io/blog/django-permissions/
+    https://www.geeksforgeeks.org/python-user-groups-custom-permissions-django/
+
 

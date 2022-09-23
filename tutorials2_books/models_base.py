@@ -23,6 +23,14 @@ class Books(models.Model):
     class Meta:
         verbose_name = "Book"
         verbose_name_plural = "Books"
+        permissions = (
+            ("can_lend", "Can Lend"),
+            ("can_borrow", "Can Borrow"),
+            ("can_destroy", "Can Destroy"),
+            ("can_archive", "Can Archive"),
+            ("can_sell", "Can Sell"),
+            ("can_buy", "Can Buy"),
+        )
 
     def __str__(self):
         return str(self.bookname) + "[" + str(self.book_id) + ']'

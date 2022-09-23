@@ -10,9 +10,6 @@ router.register('viewsettutorials', BooksViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('listcreate', BooksListCreateAPIView.as_view()),
-    path('apiview', PollList.as_view()),
-    path('listview', BooksListAPIView.as_view()),
 
     # path('', include(router.urls)),
 

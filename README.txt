@@ -44,6 +44,17 @@
     https://www.django-rest-framework.org/api-guide/pagination/
     https://www.sankalpjonna.com/learn-django/pagination-made-easy-with-django-rest-framework
 
-10. deployment
+10. Authentication & Permissions
+    pip install djangorestframework-simplejwt
+
+    https://github.com/jazzband/djangorestframework-simplejwt
+    https://django-rest-framework-simplejwt.readthedocs.io/en/latest/getting_started.html#installation
+    https://simpleisbetterthancomplex.com/tutorial/2018/12/19/how-to-use-jwt-authentication-with-django-rest-framework.html
+    https://medium.com/django-rest/django-rest-framework-jwt-authentication-94bee36f2af8
+
+    https://www.anycodings.com/1questions/1541195/what-to-add-in-permissionclasses-for-allowing-to-view-the-api-by-only-specific-group-django
+    https://gist.github.com/inoyatov/d4bca6d07bd57fdfe6bbc3872a4b8b7f
+    https://www.geeksforgeeks.org/adding-permission-in-api-django-rest-framework/
+    https://dipeshpaudel.com/django-rest-framework-permissions-example
 
 
